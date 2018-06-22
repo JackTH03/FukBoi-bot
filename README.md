@@ -1,2 +1,0 @@
-# FukBoi-bot
-biscord dot
