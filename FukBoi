@@ -1,0 +1,164 @@
+# https://github.com/Rapptz/discord.py/blob/async/examples/reply.py
+import random
+import discord
+
+
+TOKEN = 'NDU2OTQ3ODYzNTgzMTk1MTQ3.DgR9ew.EPksSbzwj77YlbwiIqp_9HZNlzU'
+
+client = discord.Client()
+
+@client.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return
+
+    if message.content.startswith('//hello'):
+        msg = 'Hello {0.author.mention} :wave:'.format(message)
+        await client.send_message(message.channel, msg)
+    elif message.content.startswith('//bot'):
+        possible_info = [
+            'This is a pointless bot.',
+            'Beep boop',
+            'You\'re a fagort',
+            '***NANI?***',
+            'My jokes pretty much summarise how uncreative my creator is.',
+            'This is a bot created because a 15 year old was bored and wanted to learn how to code something. Nothing more, nothing less.'
+        ]
+        await client.send_message(message.channel, random.choice(possible_info))
+    elif message.content.startswith('//ok'):
+        await client.send_message(message.channel, ":ok_hand:")
+    elif message.content.startswith('//say'):
+        args = message.content.split(" ")
+        await client.send_message(message.channel, "%s" % (" ".join(args[1:])))
+    elif message.content.startswith('//insult'):
+        args = message.content.split(" ")
+        possible_responses = [
+            ' cunt nugget.',
+            ' you\'re a waste of resources',
+            ' don\'t be a Dylan all your life',
+            ' stop being a fucking B**i cunt',
+            ' go fuck a duck',
+            ' stupid, fucking, righteous, fucking NIGGER',
+            ' fuck off autist',
+            ' you\'re mum gay. Because that\'s definitely funny',
+            ' you uncultured swine',
+            ' here have this :noose: ! Just for you',
+            ' please die cunt',
+            ' I bet u play with ur fatass stomach at night bitch﻿',
+            ' go massage your micro penis',
+            ''
+        ]
+        await client.send_message(message.channel, "%s" % (" ".join(args[1:])) + random.choice(possible_responses))
+    elif message.content.startswith('//DIO'):
+        possible_images = [
+            'https://cdn.discordapp.com/attachments/369949705330884609/457283611310161931/kono_dio_da.png',
+            'https://cdn.discordapp.com/attachments/359360773920653312/384480839054131230/image.jpg',
+            'https://cdn.discordapp.com/attachments/369949705330884609/457287021669515274/20180213_235354.jpg',
+            'https://cdn.discordapp.com/attachments/369949705330884609/457287204838834186/20180615_214833.jpg'
+
+        ]
+        await client.send_message(message.channel, random.choice(possible_images))
+    elif message.content.startswith('//sponsor'):
+        await client.send_message(message.channel, "This bot is brought to you by Audible.com! Because, honestly, what don\'t they sponsor")
+    elif message.content.startswith('//review'):
+        args = message.content.split(" ")
+        if "fortnite" in message.content    :
+            await client.send_message(message.channel, "Fortnite fucking sucks.")
+        elif "pubg" in message.content:
+            await client.send_message(message.channel, "Fuck off beta male cuck.")
+        elif "tabg" in message.content:
+            await client.send_message(message.channel, "Good because it\'s silly")
+        elif "skyrim" in message.content:
+            await client.send_message(message.channel, "Could you climb that mountain?")
+        elif "fallout 4" in message.content:
+            await client.send_message(message.channel, "Sometimes, it doesn't just work Todd.")
+        elif "fallout new vegas" in message.content:
+            await client.send_message(message.channel, "Cowboys, romans, and robots fight for control of a dam. 100000000000000/10")
+        elif "fallout 3" in message.content:
+            await client.send_message(message.channel, "Men in power armour destroy other men in power armour by using a giant robot that hates commies. 8/10")
+        elif "pokemon oras" in message.content:
+            await client.send_message(message.channel, "7.8/10 too much water.")
+        elif "pokemon x and y" in message.content:
+            await client.send_message(message.channel, "9/10 brainless AI.")
+        elif "pokemon sun and moon" in message.content:
+            await client.send_message(message.channel, "No gyms :rage: ")
+        elif "pokemon us and um" in message.content:
+            await client.send_message(message.channel, "Pretty much the same as Sun and Moon :rage: :rage: ")
+        elif "nekopara" in message.content:
+            await client.send_message(message.channel, "very nice :weary: :eggplant: :sweat_drops: ")
+        elif "sims 4" in message.content:
+            await client.send_message(message.channel, "A life simulation game that isn\'t as good as there other life simulation games")
+        elif "kyles sun image" in message.content:
+            await client.send_message(message.channel, "10/10 best god rays. MASTERPIECE https://cdn.discordapp.com/attachments/359360773920653312/457626330335543296/IMG_20180616_202113.jpg")
+        elif "jack" in message.content:
+            await client.send_message(message.channel, "Probably gay and probably trans.")
+        elif "fukboi" in message.content:
+            await client.send_message(message.channel, "A pontle... wait isn\'t this the same as //bot")
+        elif "dragon ball" in message.content:
+            await client.send_message(message.channel, "alien boy grows up and becomes superman... Wait that\'s not right")
+        elif "naruto" in message.content:
+            await client.send_message(message.channel, "Boy gets monster sealed in him by his father and then everyone hates him")
+        elif "boku no pico" in message.content:
+            await client.send_message(message.channel, "Are traps gay? Probably.")
+        elif "eromanga sensei" in message.content:
+            await client.send_message(message.channel, "Is this incest? Maybe?")
+        elif "miss kobayashis dragon maid"in message.content:
+            await client.send_message(message.channel, "Nearly all the characters are gay, that\'s not a problem or anything.")
+        elif "calin" in message.content:
+            await client.send_message(message.channel, "\\*Insert communist, immigrant or other unfunny joke here\\*")
+        elif "reece" in message.content:
+            await client.send_message(message.channel, "Should let me fuck him.")
+        elif "dylan" in message.content:
+            await client.send_message(message.channel, "Needs to stop being a Dylan all his life... \nAlso probably a sex offender. :ok_hand: ")
+        elif "nathan" in message.content:
+            await client.send_message(message.channel, "Kinda needs to stop being a prick?")
+        elif "hassan" in message.content:
+            await client.send_message(message.channel, "Too much change in such a small amount of time.")
+        elif "boni" in message.content:
+            await client.send_message(message.channel, "Who\'s Boni?")
+        elif "rafael" in message.content:
+            await client.send_message(message.channel, "Won\'t watch good shows so I won\'t respect him.")
+        elif "aasim" in message.content:
+            await client.send_message(message.channel, "If you were expecting a fat joke. \nFat jokes aren\'t funny faggot")
+        elif "kyle" in message.content:
+            await client.send_message(message.channel, "Probably one of the only respectable people in this group.")
+        elif "regan" in message.content:
+            await client.send_message(message.channel, "Honestly can\'t tell if hes a dick or not.")
+        elif "jake" in message.content:
+            await client.send_message(message.channel, "Closet furry is also probably autistic. Maybe.")
+        elif "aden" in message.content:
+            await client.send_message(message.channel, "Least chavy chav to ever chav out of all the chavs. Chav?")
+        elif "rythm" in message.content:
+            await client.send_message(message.channel, "!play Laggy, gitchy and constantly offline bot, but its the only one we like.")
+        elif "tenshibot" in message.content:
+            await client.send_message(message.channel, "Touhou meme bot that is way better than this bot.")
+        elif "idlerpg" in message.content:
+            await client.send_message(message.channel, "Was fun for a few days but, like most \'idle\' games, got pretty boring pretty fast. \nAlso spent all my money without warning me so fuck you!!")
+        elif "aziz" in message.content:
+            await client.send_message(message.channel, "The fallen comrade. \nFuck you Aziz!")
+        else:
+            possible_reviews = [
+                '\"11/10 ABSOLUTE MASTERPIECE!!!!\" IGN',
+                'Pretty shit to be honest.',
+                'Very bad, should\'ve tried harder',
+                'IT\'S FUCKING ***RAW***!',
+                'Instructions unclear. Got my dick stuck in the toaster.',
+                'I like building brown bricks in this game.',
+                'Is this a battle royale game?',
+                'Probably better then your lewd fantasies.',
+                'This shit is gay and so is your life.',
+                'Veri gud gam :3 \\*nyan\\*',
+                'WHERE\'S MY TENDIES? REEEEEEEEEEEEEEEEEE!',
+                'It is a thing that has some sort of existence.'
+            ]
+            await client.send_message(message.channel, random.choice(possible_reviews))
+
+@client.event
+async def on_ready():
+    print(client.user.name)
+    print(client.user.id)
+    print('Logged in')
+    print('------')
+
+client.run(TOKEN)

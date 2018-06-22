@@ -1,0 +1,157 @@
+import random
+from discord.ext.commands import Bot
+from discord import Game
+import pickle
+import os
+
+BOT_PREFIX = ("//")
+TOKEN = 'NDU2OTQ3ODYzNTgzMTk1MTQ3.DgR9ew.EPksSbzwj77YlbwiIqp_9HZNlzU'
+
+client = Bot (command_prefix=BOT_PREFIX)
+
+
+
+@client.command(name= 'randomfact',
+                description="Tells you a random fact.",
+                aliases=['randfact', 'rfact', 'fact'],
+                pass_context=True)
+async def randomfact(context):
+    poss_responses = [
+        'Sheep and goats are not able to crossbreed because the two species are too different from each other. Sheep belong to the Ovis genus while goats belong to the Capra genus.',
+        'OJ Simpson was originally cast to play Terminator, but the studio was afraid that no one would buy him as a remorseless killer.',
+        'There are more possible iterations of a game of chess than there are atoms in the known universe.',
+        'This command is basically useless',
+        'There are more vacant houses than homeless people in the Unites States.',
+        'If you try to suppress a sneeze, you can rupture a blood vessel in your head or neck and die.',
+        'When snakes are born with two heads, they fight each other for food.',
+        'A man named Charles Osborne had the hiccups for 69 years.',
+        'The chance of you dying on the way to get lottery tickets is actually greater than your chance of winning.',
+        'Female kangaroos have three vaginas.',
+        'When you sneeze your heart stops for a mili-second.',
+        'The facts from this command really aren\'t that interesting.',
+        'A duck\'s quack doesn\'t echo, and no one knows why.',
+        'Orcas (killer whales) kill sharks by torpedoing up into the shark\'s stomach from underneath, causing the shark to explode.',
+        'The person who made this bot is seriously reconsidering his life choices',
+        'Orange has almost no perfect rhymes. The only word in the 20-volume historical Oxford English Dictionary that rhymes with orange is sporange, a very rare alternative form of sporangium',
+        '\"Rhythm\" is the longest English word without a vowel. Fuck you @Rythm#3722',
+        'You can’t kill yourself by holding your breath. This is probably disappointing for someone.',
+        'A pig\'s orgasm lasts 30 minutes. Also, nobody in this server will ever have an orgasm that wasn\'t caused by themself.',
+        'What is called a "French kiss" in the English speaking world is known as an "English kiss" in France. This fact, like the others, has no meaning whatsoever.',
+        'Banging your head against a wall burns 150 calories an hour.',
+        'Hippopotomonstrosesquippedaliophobia is basically a fear that you are retarded.',
+        'HItler\'s mother considered abortion. This doesn\'t matter really because someone else probably would have done something just as bad around the same time.',
+        'Jack Holmes is seriously contemplating suicide while writing these boring facts.',
+        '95% of people text things they could never say in public. \nThis fact is retarded and obvious, the only reason it was added was to shit on it.',
+        'Some of these facts come from Buzzfeed. \nFucking fight me fags.',
+        'My brother called everyone on this server \"15 year old virgins who sit in their house all day and listen to sonic music\" \nHe\'s half right but why wouldn\'t a 15 year old be virgin?',
+        'Searching Google for interesting facts gives you very uninteresting facts.',
+        'You are a faggot.'
+    ]
+    await client.say(random.choice(poss_responses))
+
+
+
+@client.command(name= 'nsfw',
+                description="Hope you\'re happy with yourself.",
+                pass_context=True)
+async def quote(context):
+   random_hentai = [
+       'https://i.imgur.com/9Th4fkN.png',
+       'https://i.imgur.com/KSjaiy5.jpg',
+       'https://i.imgur.com/Qyr8tzn.jpg',
+       'https://i.imgur.com / 01Q99ag.jpg',
+       'https://i.imgur.com/ahqUnAq.png',
+       'https://i.imgur.com/iGuJXg5.jpg',
+       'https://i.imgur.com/QcSkR2a.png',
+       'https://i.imgur.com/El3lWny.jpg',
+       'http://i0.kym-cdn.com/photos/images/facebook/001/064/043/137.png',
+       'https://img.memecdn.com/awesome-cropped-hentai-face-2---she-amp-039-s-horny_o_4361827.jpg',
+       'https://ii.yuki.la/1/93/917cd05bd12918fcb5d2d5a8bee6d17495b634809c94039ea03cf7249399e931.jpg',
+       'https://ii.yuki.la/c/b1/3fc54c33236b26fba213009c7ea8dd76eb0ad3b2a20410b5b34413d57104bb1c.jpg',
+       'https://ii.yuki.la/4/5c/c5c281aa655319bc606d10830d9f81862728ceaca4b707e613f73e63166b65c4.jpg',
+       'https://ii.yuki.la/3/b9/f2a5bdb2beb2b5784490f97718244099174f8d8aca1e2f6742cfdf30858acb93.jpg',
+       'https://ii.yuki.la/7/24/cddfb930972e0bc284ce6c9d9e67d0cdcf02e8fa1cc49d4fe3438c9657c60247.jpg',
+       'https://ii.yuki.la/f/44/65f35b314401296c134242ead830829577a8375980467b1a7919de23dc36444f.jpg',
+       'https://ii.yuki.la/9/1e/9ec8140c1a2b9595e4a2a27115721a935a2a163540f7a832d1e9c01acd3a61e9.jpg',
+       'WARNING LOLI ALERT! \nhttps://ii.yuki.la/3/57/da8b3f976a35845e0b20beaa5a9f8c56296d2e103ab841781d53b9a24dcd1573.jpg',
+       'https://ii.yuki.la/c/d5/eb31f0741a7bcbafa798a56150b8d99a4a6e96b518a83efb360de480c7f70d5c.jpg',
+       'https://cdn.discordapp.com/attachments/390569509771280385/457790333544038450/unknown.png',
+       'https://images-ext-1.discordapp.net/external/ntu30_vOz5S_QGKDLOos33o6tCt7wkdy28KH7o6aGsw/https/cdn.discordapp.com/attachments/188872930350858241/457699687890419732/dd326167fdb42804f9e8ba5561ef8918.png?width=625&height=677',
+       ':ok_hand: \nhttps://cdn.discordapp.com/attachments/390569509771280385/457623742408032278/Whensenpaikeepsshitpostingcenter1pondo092415001tisallladscenter_7bc326_6040725.jpg',
+       'https://cdn.discordapp.com/attachments/403949556766867456/456318162116411402/iGBRO0gOlkk_A883kIxbReqBE9QgHlB3ZSgMxlUS28Y.jpg',
+       'https://lh3.googleusercontent.com/-yx_ilyNY5o4/WykwbPuhnCI/AAAAAAAAAAg/7hutVGg-E_gkuKIwhO2V7yFAqEiy_fdagCJoC/w530-h526-n-rw/dcx.PNG',
+       ''
+       ]
+   await client.say("You disgust me \n" + random.choice(random_hentai))
+
+@client.command(name= 'meme',
+                pass_context=True
+                )
+async def quote(context):
+    possible_memes = [
+        "Fuck you",
+        "Find your own",
+        "Memes are unfunny",
+        "Here's a big gay just for you fag. \nhttps://img.memecdn.com/Gayest-Person_o_96512.jpg ",
+        "Look a funny doggo. \nhttps://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c_400x400.jpeg ",
+        "Skidaddle skidoodle, \nthis meme was shit. \nhttp://i0.kym-cdn.com/photos/images/facebook/001/322/305/7ac.jpg ",
+        "While looking for this shitty meme from r/ddlc I found out that apparently its all lewds and shitty edits of peoples  best girls and it made me want to vomit \nAlso a shit load of bad fanart \nhttps://i.redditmedia.com/e2arOJuzZXZrC4U4W6VNeZX41wDhtnTYdGgzsLm4r7U.jpg?fit=crop&crop=faces%2Centropy&arh=2&w=960&s=5d8da5c38c3deb213f911f13b48cb33c",
+        "MEMEMEMEMEMMEMEMEMEMEMEMEMEMEME HAHAHAHA XD HAHAHAHHAHAH",
+        "I don\'t want this"
+    ]
+    await client.say(random.choice(possible_memes))
+
+@client.command(name= 'copypasta',
+                pass_context=True)
+async def copypasta(context):
+    possible_pasta = [
+        "What the fuck did you just fucking say about me, you little bitch? I'll have you know I graduated top of my class in the Navy Seals, and I've been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire US armed forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words. You think you can get away with saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You're fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that's just with my bare hands. Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little \"clever\" comment was about to bring down upon you, maybe you would have held your fucking tongue. But you couldn't, you didn't, and now you're paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You're fucking dead, kiddo.",
+        "Stop right there criminal scum, pay the court a fine or serve your sentence, Your stolen goods are now forfeit",
+        "When you were partying, I studied the blade. When you were having premarital sex, I mastered the blockchain. While you wasted your days at the gym in pursuit of vanity, I cultivated inner strength. And now that the world is on fire and the barbarians are at the gate you have the audacity to come to me for help.",
+        "Hey Faggots, My name is **FukBoi**, and I hate every single one of you. All of you are fat, retarded, no-lifes who spend every second of their day looking at stupid ass pictures. You are everything bad in the world. Honestly, have any of you ever gotten any pussy? I mean, I guess it\'s fun making fun of people because of your own insecurities, but you all take to a whole new level. This is even worse than jerking off to pictures on facebook. Don\'t be a stranger. Just hit me with your best shot. I\'m pretty much perfect. I was captain of the football team, and starter on my basketball team. What sports do you play, other than \"jack off to naked drawn Japanese people\"? I also get straight A\'s, and have a banging hot girlfriend (She just blew me; Shit was SO cash). You are all faggots who should just kill yourselves. Thanks for listening.",
+        "A liberal Muslim homosexual ACLU lawyer professor and abortion doctor was teaching a class on Karl Marx, known atheist \n\"Before the class begins, you must get on your knees and worship Marx and accept that he was the most highly-evolved being the world has ever known, even greater than Jesus Christ!\" At this moment, a brave, patriotic, pro-life Navy SEAL champion who had served 1500 tours of duty and understood the necessity of war and fully supported all military decision made by the United States stood up and held up a rock. \"How old is this rock?\" The arrogant professor smirked quite Jewishly and smugly replied \"4.6 billion years, you stupid Christian\" \"Wrong. It’s been 5,000 years since God created it. If it was 4.6 billion years old and evolution, as you say, is real… then it should be an animal now\" The professor was visibly shaken, and dropped his chalk and copy of Origin of the Species. He stormed out of the room crying those liberal crocodile tears. The students applauded and all registered Republican that day and accepted Jesus as their lord and savior. An eagle named \"Small Government\" flew into the room and perched atop the American Flag and shed a tear on the chalk. The pledge of allegiance was read several times, and God himself showed up and enacted a flat tax rate across the country. The professor lost his tenure and was fired the next day. He died of the gay plague AIDS and was tossed into the lake of fire for all eternity. \nSemper Fi",
+        "FOR THE LAST FUCKING TIME. \n It\'s not the dick that makes it gay, it\'s wether or not the Trap has balls, balls are the creators of testosterone and viable sperm. Sure the dick could shoot sperm but as long as it didn\'t come from balls it\'s Okay. \nNext comes the dickshape. If it\'s a big meaty manly dic then it\'s pretty gay, since your masturbating to a dick that\'s obviously male, but if it\'s smooth, silky, thin and feminine, then you know your\'re not gay because the dick is feminine and obviously belongs to a girl",
+        "\*teleportsbehind you\* nothin personnel kid" ,
+        "I’ll have two number 9s, a number 9 large, a number 6 with extra dip, a number 7, two number 45s, one with cheese, and a large soda.",
+    ]
+    await client.say(random.choice(possible_pasta))
+
+@client.command(pass_context = True)
+async def addquote(context, *answer):
+    answer=" ".join(answer)
+    if not os.path.isfile("quote_file.pk1"):
+        quote_list = []
+    else:
+        with open("quotefile.txt", "r") as quote_file:
+            quote_list = pickle.load(quote_file)
+    quote_list.append(answer)
+    with open("quotefile.txt", "a") as quote_file:
+        pickle.dump(quote_list, quote_file)
+    await client.say('Quote: "{}" added!'.format(answer))
+
+
+# .quote
+@client.command(pass_context = True)
+async def quote(context):
+    with open("quotefile.txt", "r") as quote_file:
+        quote_list = pickle.load(quote_file)
+    await client.say(random.choice(quote_list))
+
+
+client.remove_command('help')
+
+@client.command(name='help',
+                pass_context=True)
+async def help(context):
+    await client.say("```//help: Shows this textbox.` \n//hello: Gives you a friendly greeting. \n//bot: Useless command for a useless bot. \n//ok: ok \n//say: Makes me repeat you... for some reason. \n//insult: Insults the mentioned user. \n//randomfact: Makes me tell you a pointless random fact.(randfact|rfact|fact) \n//quote: Makes me quote one of you retards, H.A.L, Hitler, Stalin, Todd-Chan, Reggie-Kun or Tommy Wiseau \n//DIO: Sends an image of DIO \n//sponsor: A word from our sponsor \n//nsfw: Please die neckbeard trash. \n//review: Reviews a thing, if Jack hasn\'t added a proper one then give him a review for it. \n//meme: Sends a ver funi meme :3```")
+
+@client.event
+async def on_ready():
+     await client.change_presence(game = Game(type=2, name="the screams of children"))
+     print('Logged in as')
+     print(client.user.name)
+     print(client.user.id)
+     print('------')
+
+
+client.run(TOKEN)
